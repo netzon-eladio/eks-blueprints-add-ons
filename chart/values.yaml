@@ -73,6 +73,10 @@ datadogOperator:
 strimziKafkaOperator:
   enabled: false
 
+# Strimzi Topic Operator
+strimziTopicOperator:
+  enable: false
+
 # External DNS Values
 externalDns:
   enable: false
