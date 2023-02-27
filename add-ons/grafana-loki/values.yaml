@@ -1,38 +1,5 @@
 # for details on all options
-# https://github.com/grafana/helm-charts/blob/main/charts/loki-stack/values.yaml
+# https://github.com/grafana/helm-charts/blob/main/charts/loki-distributed/values.yaml
 
-test_pod:
-  enabled: false
-
-loki:
-  enabled: true
-  isDefault: true
-  url: http://{{(include "loki.serviceName" .)}}:{{ .Values.loki.service.port }}
-  readinessProbe:
-    httpGet:
-      path: /ready
-      port: http-metrics
-    initialDelaySeconds: 45
-  livenessProbe:
-    httpGet:
-      path: /ready
-      port: http-metrics
-    initialDelaySeconds: 45
-
-promtail:
-  enabled: false
-
-fluent-bit:
-  enabled: false
-
-grafana:
-  enabled: false
-
-prometheus:
-  enabled: false
-
-filebeat:
-  enabled: false
-
-logstash:
-  enabled: false
+serviceAccount:
+  create: false

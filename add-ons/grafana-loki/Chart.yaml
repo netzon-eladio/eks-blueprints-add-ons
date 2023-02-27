@@ -1,6 +1,6 @@
 apiVersion: v2
-name: loki
-description: A Helm chart for Grafana Loki
+name: loki-distributed
+description: Helm chart for Grafana Loki in microservices mode
 
 # Application charts are a collection of templates that can be packaged into versioned archives
 # to be deployed.
@@ -15,6 +15,6 @@ version: 0.1.0
 appVersion: "1.0"
 
 dependencies:
-- name: loki-stack
-  version: 2.9.9
+- name: loki-distributed
+  version: 0.69.6
   repository: https://grafana.github.io/helm-charts
