@@ -16,6 +16,21 @@ spec:
       values: |
         loki:
         {{- toYaml .Values.grafanaLoki | nindent 10 }}
+        test_pod:
+          enabled: false
+        promtail:
+          enabled: false
+        fluent-bit:
+          enabled: false
+        grafana:
+          enabled: false
+        prometheus:
+          enabled: false
+        filebeat:
+          enabled: false
+        logstash:
+          enabled: false
+
   destination:
     server: https://kubernetes.default.svc
     namespace: grafana
