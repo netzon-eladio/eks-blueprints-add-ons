@@ -4,8 +4,8 @@ kind: Application
 metadata:
   name: loki
   namespace: argocd
-  finalizers:
-  - resources-finalizer.argocd.argoproj.io
+  # finalizers:
+  # - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   source:
@@ -14,7 +14,7 @@ spec:
     targetRevision: {{ .Values.targetRevision }}
     helm:
       values: |
-        grafana-loki:
+        loki:
         {{- toYaml .Values.grafanaLoki | nindent 10 }}
   destination:
     server: https://kubernetes.default.svc
