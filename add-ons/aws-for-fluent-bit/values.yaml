@@ -16,7 +16,7 @@ aws-for-fluent-bit:
 
   additionalOutputs: |
     [OUTPUT]
-        Name          grafana-loki
+        Name          loki
         Match         *
         Url           http://loki-loki-distributed-ingester:3100/loki/api/v1/push
         RemoveKeys    source
