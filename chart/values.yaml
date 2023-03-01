@@ -32,6 +32,13 @@ awsForFluentBit:
   enable: false
   logGroupName:
   serviceAccountName:
+  additionalOutputs: |
+    [OUTPUT]
+        name                      loki
+        match                     *
+        host                      loki-loki-distributed-distributor.grafana.svc.cluster.local
+        labels                    job=fluentbit,xtream=$stream,$kubernetes['pod_name'],$kubernetes['namespace_name'],$kubernetes['container_name'],$kubernetes['host']
+        auto_kubernetes_labels    off
 
 # AWS Load Balancer Controller Values
 awsLoadBalancerController:
