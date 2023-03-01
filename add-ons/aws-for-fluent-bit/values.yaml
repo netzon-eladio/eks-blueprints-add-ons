@@ -13,3 +13,11 @@ aws-for-fluent-bit:
 
   elasticsearch:
     enabled: false
+
+  additionalOutputs: |
+    [OUTPUT]
+        name                      loki
+        match                     *
+        host                      loki-loki-distributed-distributor.grafana.svc.cluster.local
+        labels                    job=fluentbit,$stream,$kubernetes['pod_name'],$kubernetes['namespace_name'],$kubernetes['container_name'],$kubernetes['host']
+        auto_kubernetes_labels    off
