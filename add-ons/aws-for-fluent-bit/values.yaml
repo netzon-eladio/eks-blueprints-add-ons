@@ -16,8 +16,8 @@ aws-for-fluent-bit:
 
   additionalOutputs: |
     [OUTPUT]
-        name          loki
-        match         *
-        host          loki-loki-distributed-distributor.grafana.svc.cluster.local
-        remove_keys   source
-        labels        job=fluentbit
+        name                      loki
+        match                     *
+        host                      loki-loki-distributed-distributor.grafana.svc.cluster.local
+        labels                    job=fluentbit
+        auto_kubernetes_labels    on
