@@ -19,6 +19,5 @@ aws-for-fluent-bit:
         name                      loki
         match                     *
         host                      loki-loki-distributed-distributor.grafana.svc.cluster.local
-        labels                    job=fluentbit, stream=$stream
-        label_keys                $kubernetes
+        labels                    job=fluentbit,stream=$stream,pod_name=$kubernetes['pod_name']
         auto_kubernetes_labels    on
