@@ -20,4 +20,5 @@ aws-for-fluent-bit:
         match         *
         host          loki-loki-distributed-distributor.grafana.svc.cluster.local
         remove_keys   source
-        labels        {job="fluent-bit"}
+        labels        job=fluentbit
+        label_keys    $sub['stream']
