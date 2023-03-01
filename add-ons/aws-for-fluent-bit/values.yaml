@@ -21,4 +21,3 @@ aws-for-fluent-bit:
         host          loki-loki-distributed-ingester
         remove_keys   source
         labels        {job="fluent-bit"}
-        label_keys    container_name
