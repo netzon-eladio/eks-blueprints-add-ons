@@ -18,6 +18,6 @@ aws-for-fluent-bit:
     [OUTPUT]
         name          loki
         match         *
-        host          loki-loki-distributed-ingester.grafana.svc.cluster.local
+        host          loki-loki-distributed-distributor.grafana.svc.cluster.local
         remove_keys   source
         labels        {job="fluent-bit"}
