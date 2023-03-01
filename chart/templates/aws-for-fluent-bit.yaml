@@ -16,6 +16,13 @@ spec:
       values: |
         aws-for-fluent-bit:
         {{- toYaml .Values.awsForFluentBit | nindent 10 }}
+          additionalOutputs: |
+              [OUTPUT]
+                  name                      loki
+                  match                     *
+                  host                      loki-loki-distributed-distributor.grafana.svc.cluster.local
+                  labels                    job=fluentbit,xtream=$stream,$kubernetes['pod_name'],$kubernetes['namespace_name'],$kubernetes['container_name'],$kubernetes['host']
+                  auto_kubernetes_labels    off
       parameters:
       - name: aws-for-fluent-bit.cloudWatch.region
         value: {{ .Values.region }}
